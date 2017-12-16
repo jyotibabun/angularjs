@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script>
+        var app = angular.module("app", []);
+        app.controller("ctrl", function($scope){
+            var cars=[
+                {carName:"Audi",photo:"car1.jpg",likes:0,dislikes:0},
+                {carName:"Audi1",photo:"car2.jpg",likes:0,dislikes:0},
+                {carName:"Audi2",photo:"car3.jpg",likes:0,dislikes:0},
+            ];
+            $scope.cars=cars;
+            $scope.LikesCounter=function(car){
+                car.likes++;
+            }
+            $scope.DislikesCounter=function(car){
+                car.dislikes++;
+            }
+        });
+    </script>
+</head>
+<body ng-app="app" ng-controller="ctrl">
+    <table border="0" cellspacing="4" align="center" width="500">
+        <tr>
+            <td>Car Name</td>
+            <td>Preview</td>
+            <td>Likes</td>
+            <td>Dislikes</td>
+            <td>Likes/Dislikes</td>        
+        </tr>    
+        <tr ng-repeat="car in cars">
+            <td>{{car.carName}}</td>
+            <td>
+                <img ng-src="{{car.photo}}" width="100" height="100"
+            </td>
+            <td>{{car.likes}}</td>
+            <td>{{car.dislikes}}</td>
+            <td>
+                <button ng-click="LikesCounter(car)">Like</button>
+                <button ng-click="DislikesCounter(car)">Dislike</button>
+            </td>
+        </tr>         
+    </table>
+</body>
+</html>

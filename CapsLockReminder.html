@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script>
+        var app=angular.module("app",[]).
+        controller("ctrl", function ($scope) {
+            $scope.CapsLockCheck = function (e) {
+                keyCode = e.keyCode ? e.keyCode : e.which;
+                shiftKey = e.shiftKey ? e.shiftKey : ((keyCode == 16) ? true : false);
+
+                if(((keyCode >= 65 && keyCode <= 90)&& !shiftKey)|| ((keyCode >= 97 && keyCode <= 122)&& shiftKey)) 
+                {
+                    $scope.isVisible=true;
+                }
+            else 
+            {
+                $scope.isVisible=false;
+            }
+        }
+        });
+    </script>
+</head>
+
+<body ng-app="app" ng-controller="ctrl">
+    <fieldset>
+        <legend>Caps Lock ON</legend>
+        <input type="password" ng-keypress="CapsLockCheck($event)" />
+        <span ng-show="isVisible" style="color:orangered">Caps Lock ON</span>    
+    </fieldset>
+</body>
+</html>

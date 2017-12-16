@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Minlength & Maxlength</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app>
+    <form name="form1">
+        Your Name:<input type="text" placeholder="max 4 to 10 chars" ng-model="txtName" name="txtName" ng-maxlength="10" ng-minlength="4">
+        <span ng-if="!form1.txtName.$valid">Name too short or long</span>
+    </form>
+</body>
+</html>
+
+
+
+

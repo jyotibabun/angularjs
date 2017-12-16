@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ngSubmit&ngReset</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script>
+        var app=angular.module("app",[]);
+        app.controller("ctrl",function ($scope) {
+            $scope.submitClick=function () {
+                alert("Form will be submitted to server");
+            }
+            $scope.resetClick=function () {
+                alert("Form will reset");
+            }
+        })
+    </script>
+</head>
+<body ng-app="app" ng-controller="ctrl">
+    <form ng-submit="submitClick()" ng-reset="resetClick()">
+        Enter Name:<input type="text"><br>
+        <input type="submit" value="submit">
+        <input type="reset" value="reset">
+    </form>
+</body>
+</html>
