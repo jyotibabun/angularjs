@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script>
+		var app=angular.module("app",[]);
+		app.controller("ctrl",function($scope){
+			$scope.regex="\\+91[0-9]{10}";
+		})
+	</script>
+</head>
+<body ng-app="app" ng-controller="ctrl">
+	<form name="frmHome">
+		<b>Mobile:</b>
+		<input type="text" name="txtMobile" ng-model="txtMobile" placeholder="+91 10 digit Mobile No." ng-pattern="regex">
+		<span ng-if="!frmHome.txtMobile.$valid">Invalid Mobile Number</span>
+	</form>
+</body>
+</html>

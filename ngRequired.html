@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ng-required</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app>
+	<form name="frmHome">
+		Enter Name:<input type="checkbox" ng-model="req">(Mandatory):<br>
+		<input type="text" name="txtName" ng-model="txtName" ng-required="req">
+		<span ng-if="!frmHome.txtName.$valid">Name Required</span><br>
+		<input type="submit" value="submit">
+	</form>
+
+</body>
+</html>
